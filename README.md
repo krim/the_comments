@@ -31,7 +31,7 @@ Please try playing around with the **[Dummy App](spec/dummy_app)** in the `spec`
 
 **NB: In the following examples, `Posts` is the model to which comments are being added. For your app, the model might be `Articles` or similar instead.**
 
-### 1. Install Gems 
+### 1. Install Gems
 
 **Gemfile**
 
@@ -122,7 +122,7 @@ Will create:
 * config/initializers/the_comments.rb
 * app/controllers/comments_controller.rb
 * app/models/comment.rb
- 
+
 :warning: &nbsp; **Open each file and follow the instructions**
 
 ### 4. Models modifictions
@@ -130,12 +130,12 @@ Will create:
 **app/models/user.rb**
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include TheComments::User
 
   has_many :posts
 
-  # IT'S JUST AN EXAMPLE OF ANY ROLE SYSTEM 
+  # IT'S JUST AN EXAMPLE OF ANY ROLE SYSTEM
   def admin?
     self == User.first
   end
@@ -154,7 +154,7 @@ end
 **app/models/post.rb**
 
 ```ruby
-class Post < ActiveRecord::Base
+class Post < ApplicationRecord
   include TheComments::Commentable
 
   belongs_to :user

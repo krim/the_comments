@@ -3,13 +3,13 @@
 ### Commentable API
 
 ```ruby
-class Post < ActiveRecord::Base
+class Post < ApplicationRecord
   include TheCommentsCommentable
 
   belongs_to :user
 
   def commentable_title
-    try(:title) || "Undefined title" 
+    try(:title) || "Undefined title"
   end
 
   def commentable_url

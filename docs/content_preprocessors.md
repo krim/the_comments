@@ -11,10 +11,10 @@ class CreateComments < ActiveRecord::Migration
   def change
     create_table :comments do |t|
     # ...
-    
+
     t.text :raw_content
     t.text :content
-      
+
     # ...
     end
   end
@@ -50,7 +50,7 @@ bundle exec rails g the_comments models
 This will create **app/models/comment.rb**
 
 ```ruby
-class Comment < ActiveRecord::Base
+class Comment < ApplicationRecord
   include TheCommentsBase
 
   # ---------------------------------------------------

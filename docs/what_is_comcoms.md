@@ -21,12 +21,12 @@ And we should to separate **comments** attached to user model (tweets) and comme
 That is why User model in-fact has following relationship declarations:
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   has_many :comcoms, class_name: :Comment, foreign_key: :holder_id
-  
+
   # and if User model is commentable model
   # has_many :comments, as: :commentable
-  
+
   has_many :posts
   has_many :products
 end
@@ -35,10 +35,10 @@ end
 in real application it should be described like this:
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include TheCommentsUser
   include TheCommentsCommentable
-  
+
   has_many :posts
   has_many :products
 end
@@ -47,7 +47,7 @@ end
 But in most popular situation User model should not be commentable, and you should use only **comcoms** method to get all comments related with this user:
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include TheCommentsUser
 
   has_many :posts

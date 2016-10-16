@@ -5,7 +5,7 @@
 **When User is not commentable model**
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include TheCommentsUser
 
   has_many :posts     # commentable model
@@ -63,7 +63,7 @@ We can use following methods
 **When User is commentable model**
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include TheCommentsUser
   include TheCommentsCommentable
 
